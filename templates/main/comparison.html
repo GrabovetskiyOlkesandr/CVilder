@@ -1,0 +1,58 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Comparison | CVilder{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="text-center mb-4">
+                <h2 class="fw-bold"><i class="fa-solid fa-layer-group me-2"></i>CV Analyzer</h2>
+                <p class="text-muted">Upload resumes and find the best match instantly.</p>
+            </div>
+
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.errors }}
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">{{ form.job_description.label }}</label>
+                            {{ form.job_description }}
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">{{ form.files.label }}</label>
+                            {{ form.files }}
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fa-solid fa-magnifying-glass me-2"></i> Analyze Candidates
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+            {% if message %}
+            <div class="alert alert-{{ msg_type }} mt-4 d-flex align-items-center" role="alert">
+
+                {% if msg_type == 'success' %}
+                    <i class="fa-solid fa-circle-check me-2"></i>
+                {% else %}
+                    <i class="fa-solid fa-circle-exclamation me-2"></i>
+                {% endif %}
+
+                <div>{{ message }}</div>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}
