@@ -1,0 +1,14 @@
+{
+    "requirements": {
+        "keywords": ["requirements", "required", "вимоги", "requirements:"],
+        "weight": 3.0
+    },
+    "plus": {
+        "keywords": ["plus", "plus:", "nice to have", "буде плюсом", "would be a plus:"],
+        "weight": 1.0
+    },
+    "responsibilities": {
+        "keywords": ["responsibilities", "обов'язки", "responsibilities:"],
+        "weight": 1.5
+    }
+}

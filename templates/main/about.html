@@ -1,1 +1,50 @@
 {% extends 'main/layout.html' %}
+
+{% block title %}About | CVilder{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="mb-4">How to use CVilder</h2>
+
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-body p-4">
+                    <h4 class="fw-bold text-primary mb-3">Як правильно вводити вакансію</h4>
+                    <p>Для максимально точного результату система шукає в тексті вакансії конкретні блоки. Не вводьте просто одне слово (наприклад, "Python"). Копіюйте повний текст вакансії.</p>
+
+                    <h5 class="mt-4 fw-bold">Обов'язкові ключові слова-заголовки:</h5>
+                    <ul class="list-group list-group-flush mb-3">
+                        <li class="list-group-item"><strong>Вимоги:</strong> <code>Requirements</code>, <code>Required</code>, <code>Вимоги</code></li>
+                        <li class="list-group-item"><strong>Обов'язки:</strong> <code>Responsibilities</code>, <code>Обов'язки</code></li>
+                        <li class="list-group-item"><strong>Буде плюсом (необов'язково):</strong> <code>Plus</code>, <code>Nice to have</code>, <code>Буде плюсом</code></li>
+                    </ul>
+
+                    <div class="alert alert-warning">
+                        <strong>Приклад правильного запиту:</strong><br><br>
+                        <strong>Requirements:</strong><br>
+                        - Python, Django, SQL<br>
+                        - Git, Docker<br><br>
+                        <strong>Responsibilities:</strong><br>
+                        - Backend development<br>
+                        - API integration
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <h4 class="fw-bold mb-3">Як працює алгоритм оцінки</h4>
+                    <ul class="mb-0">
+                        <li>Система відфільтровує граматичне сміття, міста та загальні ІТ-фрази.</li>
+                        <li>Вимоги (Requirements) мають найвищу вагу при розрахунку відсотка.</li>
+                        <li>Обов'язки (Responsibilities) мають середню вагу.</li>
+                        <li>Додаткові навички (Plus) мають найменшу вагу.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

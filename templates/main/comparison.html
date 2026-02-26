@@ -41,18 +41,67 @@
 
             {% if message %}
             <div class="alert alert-{{ msg_type }} mt-4 d-flex align-items-center" role="alert">
-
                 {% if msg_type == 'success' %}
                     <i class="fa-solid fa-circle-check me-2"></i>
                 {% else %}
                     <i class="fa-solid fa-circle-exclamation me-2"></i>
                 {% endif %}
-
                 <div>{{ message }}</div>
             </div>
             {% endif %}
 
-        </div>
+            {% if results %}
+            <div class="card mt-4 shadow-sm border-0">
+                <div class="card-header bg-white py-3">
+                    <h5 class="mb-0 fw-bold"><i class="fa-solid fa-list-ol me-2"></i>Ranking Results</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0 align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col">Rank</th>
+                                <th scope="col">Candidate</th>
+                                <th scope="col">Match Score</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for candidate in results %}
+                            <tr>
+                                <td class="fw-bold text-muted">#{{ forloop.counter }}</td>
+
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa-solid fa-file-pdf text-danger me-2 fs-5"></i>
+                                        <span class="fw-bold">{{ candidate.name }}</span>
+                                    </div>
+                                </td>
+
+                                <td style="width: 40%;">
+                                    <div class="d-flex align-items-center">
+                                        <span class="fw-bold me-2">{{ candidate.score }}%</span>
+                                        <div class="progress flex-grow-1" style="height: 8px;">
+                                            <div class="progress-bar bg-{{ candidate.color }}"
+                                                 role="progressbar"
+                                                 style="width: {{ candidate.score }}%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <span class="badge bg-{{ candidate.color }} bg-opacity-10 text-{{ candidate.color }} px-3 py-2 rounded-pill border border-{{ candidate.color }}">
+                                        {{ candidate.status }}
+                                    </span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% endif %}
+            </div>
     </div>
 </div>
 {% endblock %}
